@@ -13,7 +13,7 @@ RUN echo $PWD
 
 WORKDIR /go/github.com/yudai/gotty
 
-RUN make
+RUN go build -o gotty main.go
 
 COPY getSSH.go .
 
