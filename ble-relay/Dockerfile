@@ -22,4 +22,8 @@ FROM arm64v8/python
 COPY --from=ssh_bin /go/gotty /usr/local/bin/gotty
 COPY --from=ssh_bin /go/getSSH /usr/local/bin/getSSH
 
-CMD ["/usr/local/bin/getSSH"]
+COPY loop.sh .
+
+RUN chmod +x loop.sh
+
+CMD ["./loop.sh"]
