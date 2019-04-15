@@ -19,6 +19,8 @@ RUN go build -o getSSH getSSH.go
 
 FROM arm64v8/python
 
+ENV INITSYSTEM on
+
 COPY --from=ssh_bin /go/gotty /usr/local/bin/gotty
 COPY --from=ssh_bin /go/getSSH /usr/local/bin/getSSH
 
