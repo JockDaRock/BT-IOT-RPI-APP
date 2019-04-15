@@ -6,14 +6,12 @@ RUN apk update && apk add git make
 
 RUN go get github.com/yudai/gotty
 RUN go get github.com/julienschmidt/httprouter
-RUN go get github.com/jteeuwen/go-bindata/...
-RUN go get github.com/tools/godep
+#RUN go get github.com/jteeuwen/go-bindata/...
+#RUN go get github.com/tools/godep
 
 RUN echo $PWD
 
 RUN wget https://github.com/yudai/gotty/releases/download/v2.0.0-alpha.3/gotty_2.0.0-alpha.3_linux_arm.tar.gz && tar -xvzf gotty_2.0.0-alpha.3_linux_arm.tar.gz && chmod +x gotty
-
-# RUN go build -o gotty main.go
 
 COPY getSSH.go .
 
@@ -21,7 +19,7 @@ RUN go build -o getSSH getSSH.go
 
 FROM arm64v8/python
 
-COPY --from=ssh_bin /go/bin/gotty /usr/local/bin/gotty
-COPY --from=ssh_bin /go/bin/gotty /usr/local/bin/gotty
+COPY --from=ssh_bin /go/gotty /usr/local/bin/gotty
+COPY --from=ssh_bin /go/getSSH /usr/local/bin/getSSH
 
-CMD ["gotty", "-w", "/bin/sh"]
+CMD "getSSH"

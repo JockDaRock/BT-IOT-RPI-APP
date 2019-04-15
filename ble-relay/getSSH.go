@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"encoding/json"
+	//"encoding/json"
 	//"time"
 	"github.com/julienschmidt/httprouter"
 	"net/http"
@@ -11,7 +11,7 @@ import (
 	//"os"
 	//"io"
 	"os/exec"
-	"io/ioutil"
+	//"io/ioutil"
 	//"archive/tar"
 	//"path/filepath"
 	//"./commandModels"
