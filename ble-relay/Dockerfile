@@ -1,4 +1,4 @@
-FROM armv8/golang:alpine as ssh_bin
+FROM arm64v8/golang:alpine as ssh_bin
 
 ENV CGO_ENABLED=0 GOOS=linux GOARCH=arm64
 
@@ -22,4 +22,4 @@ FROM arm64v8/python
 COPY --from=ssh_bin /go/gotty /usr/local/bin/gotty
 COPY --from=ssh_bin /go/getSSH /usr/local/bin/getSSH
 
-CMD ["/usr/local/bin/getSSH"]
+CMD ["getSSH"]
