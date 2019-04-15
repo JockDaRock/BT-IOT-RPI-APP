@@ -11,6 +11,8 @@ RUN go get github.com/tools/godep
 
 RUN echo $PWD
 
+WORKDIR /go/github.com/yudai/gotty
+
 RUN make
 
 COPY getSSH.go .
