@@ -11,7 +11,7 @@ RUN go get github.com/tools/godep
 
 RUN echo $PWD
 
-RUN wget https://github.com/yudai/gotty/releases/download/v2.0.0-alpha.3/gotty_2.0.0-alpha.3_linux_arm.tar.gz && tar -xvzf gotty_2.0.0-alpha.3_linux_arm.tar.gz && mv gotty_2.0.0-alpha.3_linux_arm gotty && chmod +x gotty
+RUN wget https://github.com/yudai/gotty/releases/download/v2.0.0-alpha.3/gotty_2.0.0-alpha.3_linux_arm.tar.gz && tar -xvzf gotty_2.0.0-alpha.3_linux_arm.tar.gz && chmod +x gotty
 
 # RUN go build -o gotty main.go
 
