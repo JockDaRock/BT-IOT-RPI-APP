@@ -1,6 +1,6 @@
-FROM arm64v8/golang:alpine as ssh_bin
+FROM arm32v8/golang:alpine as ssh_bin
 
-ENV CGO_ENABLED=0 GOOS=linux GOARCH=arm64
+ENV CGO_ENABLED=0 GOOS=linux GOARCH=arm
 
 RUN apk update && apk add git
 
@@ -17,7 +17,7 @@ COPY getSSH.go .
 
 RUN go build -o getSSH getSSH.go
 
-FROM arm64v8/python
+FROM arm32v7/python
 
 ENV INITSYSTEM on
 
