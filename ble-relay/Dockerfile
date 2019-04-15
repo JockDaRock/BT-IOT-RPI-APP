@@ -1,6 +1,6 @@
 FROM arm32v7/golang:alpine as ssh_bin
 
-ENV CGO_ENABLED=0 GOOS=linux GOARCH=arm64
+ENV CGO_ENABLED=0 GOOS=linux GOARCH=arm32
 
 RUN apk update && apk add git make
 
