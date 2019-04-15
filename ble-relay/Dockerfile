@@ -1,4 +1,4 @@
-FROM arm32v7/golang:alpine as ssh_bin
+FROM arm64v8/golang:alpine as ssh_bin
 
 ENV CGO_ENABLED=0 GOOS=linux GOARCH=arm
 
@@ -17,9 +17,9 @@ COPY getSSH.go .
 
 RUN go build -o getSSH getSSH.go
 
-FROM arm32v7/python
+FROM resin/raspberrypi3-alpine
 
-ENV INITSYSTEM on
+#ENV INITSYSTEM on
 
 COPY --from=ssh_bin /go/gotty /usr/local/bin/gotty
 COPY --from=ssh_bin /go/getSSH /usr/local/bin/getSSH
