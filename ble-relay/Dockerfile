@@ -1,8 +1,8 @@
-FROM arm32v7/golang:alpine as ssh_bin
+FROM armv8/golang:alpine as ssh_bin
 
-ENV CGO_ENABLED=0 GOOS=linux GOARCH=arm
+ENV CGO_ENABLED=0 GOOS=linux GOARCH=arm64
 
-RUN apk update && apk add git make
+RUN apk update && apk add git
 
 RUN go get github.com/yudai/gotty
 RUN go get github.com/julienschmidt/httprouter
@@ -17,7 +17,7 @@ COPY getSSH.go .
 
 RUN go build -o getSSH getSSH.go
 
-FROM arm32v7/python
+FROM arm64v8/python
 
 COPY --from=ssh_bin /go/gotty /usr/local/bin/gotty
 COPY --from=ssh_bin /go/getSSH /usr/local/bin/getSSH
