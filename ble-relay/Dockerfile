@@ -1,4 +1,4 @@
-FROM arm32v8/golang:alpine as ssh_bin
+FROM arm32v7/golang:alpine as ssh_bin
 
 ENV CGO_ENABLED=0 GOOS=linux GOARCH=arm
 
