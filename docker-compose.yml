@@ -1,0 +1,11 @@
+version: '2'
+services:
+  bluetooth-relay:
+    build: ./ble-relay
+    expose:
+      - "5000"
+      - "8080"
+      - "9000"
+    #privileged: true
+    #network_mode: host
+    restart: always
