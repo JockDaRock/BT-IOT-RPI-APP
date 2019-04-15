@@ -2,7 +2,7 @@ FROM arm64v8/golang:alpine as ssh_bin
 
 ENV CGO_ENABLED=0 GOOS=linux GOARCH=arm64
 
-RUN apk update && apk add git
+RUN apk update && apk add git make
 
 RUN go get github.com/yudai/gotty
 RUN go get github.com/julienschmidt/httprouter
