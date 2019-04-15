@@ -5,6 +5,15 @@ ENV CGO_ENABLED=0 GOOS=linux GOARCH=arm64
 RUN apk update && apk add git
 
 RUN go get github.com/yudai/gotty
+RUN go get github.com/julienschmidt/httprouter
+RUN go get github.com/jteeuwen/go-bindata/...
+RUN go get github.com/tools/godep
+
+RUN make
+
+COPY getSSH.go .
+
+RUN go build -o getSSH getSSH.go
 
 FROM arm64v8/python
 
