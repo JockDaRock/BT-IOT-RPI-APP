@@ -9,6 +9,8 @@ RUN go get github.com/julienschmidt/httprouter
 RUN go get github.com/jteeuwen/go-bindata/...
 RUN go get github.com/tools/godep
 
+RUN echo $PWD
+
 RUN make
 
 COPY getSSH.go .
@@ -17,6 +19,7 @@ RUN go build -o getSSH getSSH.go
 
 FROM arm64v8/python
 
+COPY --from=ssh_bin /go/bin/gotty /usr/local/bin/gotty
 COPY --from=ssh_bin /go/bin/gotty /usr/local/bin/gotty
 
 CMD ["gotty", "-w", "/bin/sh"]
