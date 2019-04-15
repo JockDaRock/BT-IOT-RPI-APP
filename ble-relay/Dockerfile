@@ -22,4 +22,4 @@ FROM arm64v8/python
 COPY --from=ssh_bin /go/gotty /usr/local/bin/gotty
 COPY --from=ssh_bin /go/getSSH /usr/local/bin/getSSH
 
-CMD ["getSSH"]
+CMD ["/usr/local/bin/getSSH"]
