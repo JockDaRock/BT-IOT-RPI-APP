@@ -28,4 +28,8 @@ COPY loop.sh .
 
 RUN chmod +x loop.sh
 
+EXPOSE 5000
+EXPOSE 8080
+EXPOSE 9000
+
 CMD ["./loop.sh"]
