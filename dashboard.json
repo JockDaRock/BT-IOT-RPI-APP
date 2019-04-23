@@ -1,0 +1,92 @@
+{
+	"version": 1,
+	"allow_edit": true,
+	"plugins": [],
+	"panes": [
+		{
+			"width": 1,
+			"row": {
+				"3": 13
+			},
+			"col": {
+				"3": 1
+			},
+			"col_width": "3",
+			"widgets": [
+				{
+					"type": "sparkline",
+					"settings": {
+						"title": "Light Line",
+						"value": [
+							"datasources[\"dc2019\"][\"undefined\"][\"Lux\"]"
+						],
+						"include_legend": true,
+						"legend": "LUX"
+					}
+				}
+			]
+		},
+		{
+			"width": 1,
+			"row": {
+				"3": 7
+			},
+			"col": {
+				"3": 1
+			},
+			"col_width": "2",
+			"widgets": [
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "TEMP",
+						"size": "big",
+						"value": "datasources[\"dc2019\"][\"undefined\"][\"Temperature\"]-7",
+						"animate": false,
+						"units": "Deg F"
+					}
+				}
+			]
+		},
+		{
+			"width": 1,
+			"row": {
+				"3": 1
+			},
+			"col": {
+				"3": 1
+			},
+			"col_width": "3",
+			"widgets": [
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "LUX",
+						"size": "regular",
+						"value": "datasources[\"dc2019\"][\"undefined\"][\"Lux\"]",
+						"sparkline": true,
+						"animate": true,
+						"units": "LUX"
+					}
+				}
+			]
+		}
+	],
+	"datasources": [
+		{
+			"name": "dc2019",
+			"type": "mqtt",
+			"settings": {
+				"topic": "/sense",
+				"server": "10.8.182.134",
+				"port": 9001,
+				"use_encryption": false,
+				"client_id": "something",
+				"api_key": "",
+				"api_auth_token": "",
+				"json_data": true
+			}
+		}
+	],
+	"columns": 3
+}
